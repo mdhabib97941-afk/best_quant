@@ -2,7 +2,7 @@ services:
   - type: web
     name: titan-quant-system
     runtime: python
-    region: oregon
+    region: frankfurt
     plan: free
     buildCommand: pip install -r requirements.txt
     startCommand: python app.py
