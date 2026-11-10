@@ -1,0 +1,6 @@
+{
+  "last_alert_ts": 0,
+  "last_alert_price": 0.0,
+  "is_squeeze_active": false,
+  "last_trigger_reason": "None"
+}

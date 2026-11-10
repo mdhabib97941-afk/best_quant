@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: titan-quant-system
+    runtime: python
+    region: oregon
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python app.py
+    healthCheckPath: /api/market-pulse
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: ENABLE_DRAGONFLY
+        value: "true"
+      - key: ENABLE_TELEGRAM
+        value: "true"
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: TELEGRAM_CHAT_ID
+        sync: false

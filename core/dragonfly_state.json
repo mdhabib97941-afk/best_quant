@@ -1,0 +1,26 @@
+{
+  "symbol": "BTCUSDT",
+  "timestamp": 1794295996.2295635,
+  "last_price": 74698.85,
+  "price": 74698.85,
+  "macro_eq": 74750.9,
+  "gate": "BEARISH_ALLOWED",
+  "demand_zone": [
+    73333.0,
+    74002.2
+  ],
+  "supply_zone": [
+    75499.6,
+    76168.8
+  ],
+  "vw_obi_20": -0.0205,
+  "l1_obi": 0.136,
+  "ticks": 41487007,
+  "active_walls": {
+    "bids": [],
+    "asks": []
+  },
+  "cips_score": 64.1,
+  "confidence_pct": 56.0,
+  "status": "ONLINE"
+}

@@ -1,0 +1,10 @@
+{
+  "regime": "WHALE_SHORT",
+  "last_alert_regime": "WHALE_SHORT",
+  "last_alert_time": 1794286842,
+  "last_entry_price": 74725.2,
+  "last_vwap": 74844.1,
+  "defense_ceiling": 75411.0,
+  "last_oi": 98846.688,
+  "last_unwind_time": 1794216323
+}
