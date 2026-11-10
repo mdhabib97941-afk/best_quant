@@ -32,7 +32,21 @@ def get_json(url):
         with urllib.request.urlopen(req, timeout=8) as resp:
             return json.loads(resp.read().decode('utf-8'))
     except Exception:
-        return []
+        pass
+    # Cloud Datacenter fallback to Binance Vision
+    try:
+        alt_url = None
+        if 'api.binance.com' in url and 'fapi.binance.com' not in url:
+            alt_url = url.replace('https://api.binance.com', 'https://data-api.binance.vision')
+        elif 'fapi.binance.com/fapi/v1/klines' in url:
+            alt_url = url.replace('https://fapi.binance.com/fapi/v1/klines', 'https://data-api.binance.vision/api/v3/klines')
+        if alt_url:
+            r = requests.get(alt_url, headers=headers, timeout=8)
+            if r.status_code == 200:
+                return r.json()
+    except Exception:
+        pass
+    return []
 
 def compute_retention_ratio(p1_spot_delta, p2_spot_delta):
     if p1_spot_delta <= 0:

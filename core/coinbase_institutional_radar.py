@@ -67,7 +67,7 @@ def analyze_coinbase_flow():
 
     # 3. Premium Velocity (Compare CB with Binance Spot)
     try:
-        bn_res = requests.get('https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT', timeout=5).json()
+        bn_res = requests.get('https://data-api.binance.vision/api/v3/ticker/price?symbol=BTCUSDT', timeout=5).json()
         if isinstance(bn_res, dict) and 'price' in bn_res:
             bn_spot = float(bn_res['price'])
             if mid_cb == 0.0 and bn_spot > 0:
@@ -80,7 +80,7 @@ def analyze_coinbase_flow():
     # Historical 1m candle spread velocity (last 5 min)
     try:
         cb_c = {c[0]: c for c in requests.get('https://api.exchange.coinbase.com/products/BTC-USD/candles?granularity=60', headers=headers, timeout=5).json()[:6]}
-        bn_c = requests.get('https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1m&limit=6', timeout=5).json()
+        bn_c = requests.get('https://data-api.binance.vision/api/v3/klines?symbol=BTCUSDT&interval=1m&limit=6', timeout=5).json()
         
         spreads = []
         for k in bn_c:
